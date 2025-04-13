@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shared Status</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        const currentUser = "{{ user }}";
+    </script>
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <h1>Status & Message Board</h1>
+
+    <h2>Choose Theme</h2>
+    <label for="bgColor">Background:</label>
+    <select id="bgColor">
+        <option value="#ffffff">White</option>
+        <option value="#f8f8f8">Light Gray</option>
+        <option value="#fbe4e4">Blush</option>
+        <option value="#e4f9f5">Mint</option>
+        <option value="#1e1e1e">Dark</option>
+    </select>
+
+    <label for="fontFamily">Font:</label>
+    <select id="fontFamily">
+        <option value="sans-serif">Sans Serif</option>
+        <option value="serif">Serif</option>
+        <option value="cursive">Cursive</option>
+        <option value="'Courier New', monospace">Monospace</option>
+    </select>
+
+    <hr>
+
+    <h2>Your Status</h2>
+    <select id="status">
+        <option>Online</option>
+        <option>Do not disturb</option>
+        <option>Busy</option>
+        <option>Away</option>
+        <option>On phone</option>
+        <option>Text me</option>
+    </select>
+
+    <h2>Your Message</h2>
+    <textarea id="message" rows="3" cols="40"></textarea><br>
+    <button onclick="sendMessage()">Send</button>
+
+    <hr>
+    <h2>{{ 'Jenn' if user == 'dean' else 'Dean' }}’s Status</h2>
+    <p id="partnerStatus">Loading...</p>
+
+    <h2>{{ 'Jenn' if user == 'dean' else 'Dean' }}’s Messages</h2>
+    <div id="messages"></div>
+</body>
+</html>
